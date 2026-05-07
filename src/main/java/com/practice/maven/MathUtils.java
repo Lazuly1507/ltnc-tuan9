@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
  */
 public class MathUtils {
   private static final Logger logger = LoggerFactory.getLogger(MathUtils.class);
-  int myVariable = 1;
+  int my_Variable = 1;
 
   /**
    * Adds two integers.
