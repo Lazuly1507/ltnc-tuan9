@@ -12,6 +12,7 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-latest, windows-latest, macos-latest ] # Kiểm thử đa hệ điều hành (Bài 4)
+        java-version: [ 21 ] # Sử dụng Java 17
     runs-on: ${{ matrix.os }}
 
     permissions:
@@ -22,10 +23,10 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Set up JDK ${{ matrix.java-version }}
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v3
         with:
           java-version: ${{ matrix.java-version }}
           distribution: "temurin"
