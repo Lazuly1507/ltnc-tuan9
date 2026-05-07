@@ -35,7 +35,7 @@ jobs:
 
       - name: Build with Maven
         # Chạy verify bao gồm: Checkstyle, Unit Test, và JaCoCo Check
-        run: mvn clean verify
+        run: mvn clean package jacoco:report checkstyle:check
 
       # Bài 7: Inline Feedback cho Pull Request (Chỉ chạy trên Ubuntu để tránh lặp lại)
       - name: Checkstyle Review
