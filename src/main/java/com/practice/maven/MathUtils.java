@@ -21,4 +21,16 @@ public class MathUtils {
     logger.info("Đang thực hiện phép cộng: {} + {}", a, b);
     return a + b;
   }
+
+  /**
+   * Main method to demonstrate the usage of MathUtils.
+   *
+   * @param args
+   *
+   */
+  public static void main(String[] args) {
+    MathUtils mathUtils = new MathUtils();
+    int result = mathUtils.add(5, 3);
+    System.out.println("Kết quả: " + result);
+  }
 }
