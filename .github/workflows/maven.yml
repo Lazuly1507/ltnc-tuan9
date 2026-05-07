@@ -43,7 +43,7 @@ jobs:
       # Bài 3 & 5: Lưu trữ Artifact (.jar và Báo cáo JaCoCo)
       - name: Upload Build Artifacts
         if: always() && matrix.os == 'ubuntu-latest'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: project-reports
           path: |
