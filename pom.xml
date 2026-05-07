@@ -7,9 +7,9 @@
   <version>1.0-SNAPSHOT</version>
 
   <properties>
-    <!-- Hibernate 6+ và Logback 1.4+ yêu cầu tối thiểu Java 11 -->
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
+    <!-- Hibernate 6+ and Logback 1.4+ require minimum Java 11, upgrading to Java 21 -->
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.jupiter.version>5.9.2</junit.jupiter.version>
   </properties>
