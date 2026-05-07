@@ -1,14 +1,14 @@
 name: Java CI with Maven
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 jobs:
   test-on-matrix:
     strategy:
       # Matrix sẽ tạo ra 3 jobs chạy song song
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-    
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+
     runs-on: ${{ matrix.os }}
 
     steps:
