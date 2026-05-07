@@ -7,26 +7,30 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-test:
-    # Bài 4: Matrix Strategy chạy trên 3 HĐH
+  quality-gate:
+    name: Checkstyle and Tests
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        java-version: [21]
-    
+        os: [ ubuntu-latest, windows-latest, macos-latest ] # Kiểm thử đa hệ điều hành (Bài 4)
     runs-on: ${{ matrix.os }}
+
+    permissions:
+      # Quan trọng để bot có thể comment vào PR
+      contents: read
+      pull-requests: write
+      checks: write
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up JDK ${{ matrix.java-version }}
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: ${{ matrix.java-version }}
-          distribution: 'temurin'
+          distribution: "temurin"
           # Bài 6: Tối ưu hóa với Caching
-          cache: 'maven'
+          cache: "maven"
 
       - name: Build with Maven
         # Chạy verify bao gồm: Checkstyle, Unit Test, và JaCoCo Check
@@ -35,7 +39,7 @@ jobs:
       # Bài 7: Inline Feedback cho Pull Request (Chỉ chạy trên Ubuntu để tránh lặp lại)
       - name: Checkstyle Review
         if: github.event_name == 'pull_request' && matrix.os == 'ubuntu-latest'
-        uses: dbelyaev/action-checkstyle@master
+        uses: dbelyaev/action-checkstyle@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           level: warning
